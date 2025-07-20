@@ -1,0 +1,10 @@
+.clues{
+        width: 90%;               /* Responsive width */
+    max-width: 600px;         /* Max size on large screens */
+    border: 1px solid rgba(97, 97, 97, 0.244);
+    border-radius: 2px;
+    padding: 20px;            /* More space inside */
+    margin: 0 auto;           /* Center horizontally */
+    background-color: #111;   /* Optional: to make it stand out */
+   
+}

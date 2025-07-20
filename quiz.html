@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Concursillo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="sci-fi.css">
+    <link rel="stylesheet" href="quiz-style.css">
+    <script src="quizlogic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+     
+</head>
+<body>
+    <div class="center-div">
+
+        <div class="question-box">
+            <div class="headup" style="background-color: green; font-family: 'Bitcount', sans-serif;">
+                <h1>?</h1>
+            </div>
+            <p  id="question" style="color: rgb(64, 224, 184);   font-family: 'Bitcount', sans-serif;"></p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="answer-box">
+            <form action="" class="container">
+  <div class="input-container">
+      <div class="input-content">
+          <div class="input-dist">
+           <span id="SubscribeTXT">Introduce tu respuesta</span>
+              <div class="input-type">
+                  <input placeholder="Respuesta" required type="text" class="input-is" id="answerbox">  
+                  
+              </div>
+              <button type="button" id="button">Responde</button>
+          </div>
+      </div>
+  </div>
+</form>
+        </div>
+
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+ <script>
+    function getCookie(nombre) {
+        const cookies = document.cookie.split("; ");
+        for (let c of cookies) {
+            const [key, value] = c.split("=");
+            if (key === nombre) return decodeURIComponent(value);
+        }
+        return null;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const quizEstado = getCookie("quiz");
+        if (quizEstado === "vencido") {
+            // Usuario ya completó el quiz
+            window.location.href = "digits.html"; // o la página que desees mostrarle
+        } 
+        // Si no existe la cookie, el usuario permanece en esta página
+    });
+</script>
+
+</body>
+</html>

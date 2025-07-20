@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>¿Quien eres?</title>
+    <script src="passlogic.js"></script>
+    <link rel="stylesheet" href="sci-fi.css">
+    <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+    <div class="center-div">
+<!-- From Uiverse.io by OmarN6 --> 
+<form action="" class="container">
+  <div class="input-container">
+      <div class="input-content">
+          <div class="input-dist">
+           <span id="SubscribeTXT">Verifícate</span>
+              <div class="input-type">
+                  <input placeholder="Nombre" required type="text" class="input-is" id="name">  
+                  <input placeholder="Contraseña" required type="password" class="input-is" id="password">  
+              </div>
+              <button type="button" onclick="checkPassword()">Proceder</button>
+          </div>
+      </div>
+  </div>
+</form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script> 
+    <script>
+
+
+
+        function getCookie(username){
+            const cookies = document.cookie.split("; ");
+             for (let c of cookies) {
+            const [key, value] = c.split("=");
+            if (key === username) return decodeURIComponent(value);
+        }
+        return null;
+        }
+
+         window.addEventListener("DOMContentLoaded", () => {
+    const usuario = getCookie("usernameMJ");
+    const quizEstado = getCookie("quiz");
+    if (quizEstado === "vencido") {
+            // Usuario ya completó el quiz
+            window.location.href = "digits.html"; // o la página que desees mostrarle
+    } else {
+    if (usuario) {
+      // Verificamos si el nombre contiene "maría josé" (sin importar mayúsculas)
+      if (usuario.toLowerCase().includes("maría josé")) {
+        window.location.href = 'quiz.html?name=' + encodeURIComponent(usuario);
+      } else {
+        window.location.href = 'support.html?name=' + encodeURIComponent(usuario);
+      }
+    } 
+  }
+    // Si no existe la cookie, el usuario queda en la página sin redirigir (puedes poner aquí un mensaje o acción)
+  });
+
+        
+    </script>
+</body>
+</html>

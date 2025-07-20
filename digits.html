@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>los dígitos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="digits-style.css">
+</head>
+<body>
+
+    <div class="center-div">
+        <div class="clues" style="font-family: 'Bitcount', sans-serif;">
+            <h1 id="headline" style="font-size:medium;  background-color: red; padding: 20px; font-family: 'Bitcount', sans-serif;"></h1>
+            <br>
+            <div style="color: greenyellow; padding: 20px;">
+            <p id="1"></p>
+            <br>
+            <p id="2"></p>
+            <br>
+            <p id="3"></p>
+            <br>
+            <p id="4"></p>
+            </div>
+        </div>
+    </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>  
+       <script>
+
+    function typeWriterEffect(text, element, speed = 50) {
+    element.textContent = "";
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+    }
+        const output = document.getElementById("headline");
+        const one = document.getElementById("1");
+        const two = document.getElementById("2");
+        const three = document.getElementById("3");
+        const four = document.getElementById("4");
+        function getCookie(username){
+            const cookies = document.cookie.split("; ");
+             for (let c of cookies) {
+            const [key, value] = c.split("=");
+            if (key === username) return decodeURIComponent(value);
+        }
+        return null;
+        }
+
+         window.addEventListener("DOMContentLoaded", () => {
+    const quizEstado = getCookie("quiz");
+    if (quizEstado === "vencido") {
+            // Usuario ya completó el quiz
+            // hora de darle las pistas de la combinación
+            output.style.backgroundColor = 'green';  
+            typeWriterEffect("Bien hecho, sabía que lo lograrías", output);
+            typeWriterEffect("El primer número lo tienes tú, pues lo usaste varias veces como respuesta", one);
+            typeWriterEffect("El segundo número lo tiene la teniente la cual se pone en contacto contigo cada anochecer", two);
+            typeWriterEffect("El tercer número lo tiene el llanero solitario de ruidoso corcel", three);
+            typeWriterEffect("El cuarto número lo tiene la chica por la cual darías tu vida", four);
+    } else {
+        output.style.backgroundColor = 'red';  // Cambia el fondo a azul
+typeWriterEffect("No deberías estar aquí", output);
+  }
+    // Si no existe la cookie, el usuario queda en la página sin redirigir (puedes poner aquí un mensaje o acción)
+  });
+
+        
+    </script> 
+</body>
+</html>
